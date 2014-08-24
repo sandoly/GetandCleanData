@@ -89,7 +89,7 @@ The 'run_analysis.R' script produces two object:
 The script was tested under Windows 8.1 OS running RStudio Version 0.98.1028 with R Version 3.1.1 using  
 the following R packages: Data Table  v1.9.2, Reshape2 v1.4, stringr v0.6.2
 
-To obtain the tidy file 'TidyMeasurement.txt', the following steps have to be taken:
+To obtain the 'DT.tidy tidy' data table and the file 'TidyMeasurement.txt', the following steps have to be taken:
     Step1 - Run R Studio or R console
     Step2 - Set a working directory with 'setwd(directory)'command
     Step3 - If necessary install the following R packages: 
