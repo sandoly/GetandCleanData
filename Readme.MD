@@ -301,7 +301,7 @@ The script perform the following actions from scratch:
     
 ### The code book
 
-The codebook file 'codebook.md' is the description of the contents of the tidy data file, 'TidyMeasurement.txt'
+The codebook file 'codebook.md' is the description of the contents of the tidy data file, 'TidyMeasurement.txt' and the 'DT.tidy' data table. 
 It also describes how was the selection of variables was made. 
 
 
