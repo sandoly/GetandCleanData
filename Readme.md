@@ -96,7 +96,7 @@ To obtain the tidy file 'TidyMeasurement.txt', the following steps have to be ta
 The script perform the following actions from scratch: 
 
 0. Load required libraries
-    ## load required libraries
+    [//]: # (load required libraries)
     library(data.table)
     library(stringr)
     library(reshape2)
@@ -104,7 +104,7 @@ The script perform the following actions from scratch:
     - create data folder to download data if data directory does not exist
     - unzip file to data folder (./data/UCI HAR Dataset), then delete the zip file
     
-    ## download data
+    [//]: # (download data)
     if (!file.exists("data")) {                                                 # create data folder to download data if data directory does not exist
             dir.create("data") }
     fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -119,7 +119,7 @@ The script perform the following actions from scratch:
     - format activity labels (lowercase, capitalize start of each word, remove punctuation string) 
     - load measurements number and label from 'features.txt' into 'features' data frame   
     
-    ## processing common data from root (UCI HAR Dataset) folder
+    [//]: # (processing common data from root (UCI HAR Dataset) folder)
     activity.labels <- read.table("./data/UCI HAR Dataset/activity_labels.txt", header = F)
                                                                                 # load activity labels into 'activity.labels' data frame 
     # format activity labels                                                                          
@@ -146,7 +146,7 @@ The script perform the following actions from scratch:
     - transform 'train.set' to 'DT.train.set' data.table
     - remove unused data frames to free up workspace memory
     
-    ## processing 'train' data
+    [//]: # (processing 'train' data)
     y.train <- read.table("./data/UCI HAR Dataset/train/y_train.txt", header = F 
                           , strip.white = T, stringsAsFactors = F)              # load activity labels of train set into 'y.train' data frame
 
@@ -189,7 +189,7 @@ The script perform the following actions from scratch:
     - transform 'test.set' to 'DT.test.set' data.table
     - remove unused data frames to free up workspace memory
 
-    ## processing 'test' data     
+    [//]: # (processing 'test' data)   
     y.test <- read.table("./data/UCI HAR Dataset/test/y_test.txt", header = F   # load activity labels of test set into 'y.test' data frame
                           , strip.white = T, stringsAsFactors = F)
 
@@ -220,7 +220,7 @@ The script perform the following actions from scratch:
     - remove unused data tables to free up memory
     - sort rows in 'DT.summary' by "Subject" then "Activity.Nr" variable
     
-    ## join train data set (DT.train.set) and test data set (DT.test.set) and sort by Subject then Activity Number
+    [//]: # (join train data set (DT.train.set) and test data set (DT.test.set) and sort by Subject then Activity Number)
     DT.summary <- rbind(DT.test.set, DT.train.set)                              # binding 'DT.test.set' with 'DT.train.set' in 'DT.summary'
     rm(DT.train.set,DT.test.set)                                                # remove unused data tables to free up memory
 
@@ -238,7 +238,7 @@ The script perform the following actions from scratch:
     - load masked columns by 'columnMask' into 'DT.tidy' data table
     - free up workspace memory
     
-    ## Selecting data
+    [//]: # (Selecting data)
     titles <- names(DT.summary.sorted)                                          # load 'DT.summary.sorted' data table header into 'titles' character vector                           
                                                                                 # creating a mask, colSelection, that contains which columns we keep 
     colSelection <- str_detect(titles, "std()|mean()")                          # select all features in "titles" that end with "mean()" or "std()"
@@ -255,7 +255,7 @@ The script perform the following actions from scratch:
     - replace old column names by the new ones
     - free up workspace memory
 
-    ## Giving descriptive variable labels ergo Cosmetics
+    [//]: # (Giving descriptive variable labels ergo Cosmetics)
     titles <- names(DT.tidy)                                                    # load 'DT.tidy' header into 'titles' character vector
     titles <- str_replace(titles, "^t" , "Time")
     titles <- str_replace(titles, "Freq" , "Frequency")
@@ -280,7 +280,7 @@ The script perform the following actions from scratch:
     - free up workspace memory
     - save 'DF.tidiest' data frame to a 'TidyMeasurement.txt' file in the './data/' folder
 
-    ## Producing Tidy Data Set
+    [//]: # (Producing Tidy Data Set)
     DT.melted <- melt(DT.tidy, id.vars = c("Activity", "Subject"),              # reshapes DT.tidy, separate id variables (Activity, Subject)
                     variable.name = "Variable", value.name = "Value")           # from measure variables  
 
@@ -289,7 +289,7 @@ The script perform the following actions from scratch:
                                                                                 
     rm(DT.melted)                                                               # free up workspace memory
 
-    ## Saving file
+    [//]: # (Saving file)
     write.table(DF.tidiest, file="./data/TidyMeasurement.txt", sep=","          # save DF.tidiest to a txt file
                 , row.names=FALSE, col.names=TRUE)
     
