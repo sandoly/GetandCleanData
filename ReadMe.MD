@@ -95,8 +95,8 @@ To obtain the 'DT.tidy tidy' data table and the file 'TidyMeasurement.txt', the 
     Step3 - If necessary install the following R packages: 
             Data Table  v1.9.2, Reshape2 v1.4, stringr v0.6.2, plyr v 1.8.1.
     Step4 - Run the R script with 'source("run_analysis.R")' command
-    Step5 - Either print the 'DF.tidiest' data frame or load the 'TidyMeasurement.txt' to a text editor
-            to see the summarized results
+    Step5 - Print the 'DF.tidy' data frame and load the 'TidyMeasurement.txt' to a text editor
+            to see the results.
 
 The script perform the following actions from scratch: 
 
