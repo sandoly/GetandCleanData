@@ -78,6 +78,11 @@ To obtain a tidy data set Hadley Wickham's general principles on tidy data set w
     - There should be one table for each "kind" of variable
     - If you have multiple tables, they should include a column in the table that allows them to be linked
     - Abbreviations are replaced with their longer name in the table header
+    
+The 'run_analysis.R' script produces two object:
+    1. a 'DT.tidy' data table in the R workspace that contains all the selected mean and standard deviation
+       measuremet variables and its values described in the codebook.MD
+    2. a 'TinyMeasurement.txt' text file with the mean values of the 'DT.tidy' measuerement variables
 
 ### The instruction list/script
 
